@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
 
+  const HomeScreen(this.startQuiz, {super.key});
+
+  final void Function() startQuiz;
+  
   @override
   Widget build(context) {
     return Center(
@@ -32,7 +35,7 @@ class HomeScreen extends StatelessWidget {
 
           // this outlinedButton.icon help to add icons in the button
           OutlinedButton.icon(
-            onPressed: () {},
+            onPressed: startQuiz,
 
             //styling the button
             style: OutlinedButton.styleFrom(
@@ -41,8 +44,9 @@ class HomeScreen extends StatelessWidget {
               textStyle: TextStyle(fontSize: 20),
             ),
             icon: const Icon(Icons.arrow_right_alt, size: 40),
-            label: const Text("Start Quiz",
-            style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold),
+            label: const Text(
+              "Start Quiz",
+              style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
             ),
           ),
         ],
